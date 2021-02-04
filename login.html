@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+        <title>Home Login</title>
+    </head>
+    <style type="text/css">
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: "Nunito Sans", sans-serif;
+        }
+        .div-image {
+            padding-top: 32px;
+            padding-left: 16px;
+        }
+        .div-title {
+            padding-top: 108px;
+            padding-left: 16px;
+        }
+        .div-form {
+            margin-top: 24px;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+        .div-info {
+            background: #106eb0;
+            border-radius: 4px;
+            position: absolute;
+            top: -42px;
+            right: 0px;
+        }
+        .div-error {
+            background-color: #531e6d;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            color: white;
+        }
+        .info-icon {
+            color: white;
+            position: absolute;
+            top: 25px;
+            right: 5px;
+        }
+        .close-icon {
+            color: white;
+            position: absolute;
+            top: 3px;
+            right: 3px;
+        }
+        .itauText {
+            font-style: normal;
+            font-weight: 200;
+            font-size: 22px;
+            line-height: 38px;
+            color: #ffff;
+            margin: 0;
+        }
+        .itauTextApp {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 28px;
+            color: #ffff;
+        }
+        .itauTextBtn {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+            color: #ec7404;
+            margin: 0;
+        }
+        .itauTextInfo {
+            font-style: normal;
+            font-weight: 200;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            color: white;
+            margin: 0;
+        }
+        .itauTextError {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            margin: 0;
+        }
+        .gradient {
+            margin-top: 24px;
+            background: linear-gradient(135deg, rgba(255, 117, 0, 0.9) 0%, rgba(231, 157, 7, 0.9) 100%);
+            border-radius: 4px;
+        }
+        .btn {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #ffff;
+        }
+        input {
+            border: none !important;
+            border-bottom: 2px solid white !important;
+            color: white !important;
+            background-color: transparent !important;
+        }
+        label {
+            color: white;
+        }
+    </style>
+    <body>
+        <div class="super-container" style="background-image: url('image/home.svg'); background-size: 100% auto; height: 100%;">
+            <div class="col-2 div-image">
+                <img src="image/icon.svg" width="48px" height="48px" />
+            </div>
+            <div class="col-12 div-title">
+                <p class="itauText">Bienvenido a</p>
+                <p class="itauTextApp">SúperAhorro</p>
+            </div>
+            <div class="div-form gradient">
+                <form>
+                    <div class="card-body">
+						<div class="form-floating mb-3">
+						  <input type="text" class="form-control" id="floatingRut" name="rut" placeholder="RUT" required>
+						  <label for="floatingRut">RUT</label>
+						</div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="internet" id="internet" placeholder="Clave internet" required />
+                            <label for="internet">Clave internet</label>
+                            <div class="div-info" id="div-info">
+                                <div class="card-body" style="position: relative;">
+                                    <p class="itauTextInfo">Clave internet es tu clave para iniciar sesión en el sitio web y App Itaú.</p>
+                                    <i class="fa fa-times close-icon" aria-hidden="true" onclick="closeinfo()"></i>
+                                </div>
+                            </div>
+                            <i class="fa fa-info-circle info-icon fa-lg" aria-hidden="true" onclick="openinfo()"></i>
+                        </div>
+                        <button class="btn" type="submit"><p class="itauTextBtn">Iniciar sesión</p></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 div-error" id="div-error">
+                <i class="fa fa-times close-icon" aria-hidden="true" onclick="closeerror()"></i>
+                <div style="padding: 20px;">
+                    <div class="row">
+                        <div class="col-2" style="text-align: center; vertical-align: middle;">
+                            <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <p class="itauTextError">Disculpa, no pudimos validar tus credenciales. Tu RUT y clave son incorrectos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script>
+            $("#div-info").hide();
+            function openinfo() {
+                $("#div-info").show();
+            }
+            function closeinfo() {
+                $("#div-info").hide();
+            }
+            function closeerror() {
+                $("#div-error").hide();
+            }
+        </script>
+    </body>
+</html>
